@@ -57,7 +57,12 @@ export const ciRepos: CiRepo[] = [
     stack: 'Java 21 · JUnit 5 · Selenium',
     allureWorkflow: 'Nightly Test Suite',
   },
-  { repo: 'PythonSeleniumProject', label: 'Python Selenium', stack: 'Python · pytest · Selenium' },
+  {
+    repo: 'PythonSeleniumProject',
+    label: 'Python Selenium',
+    stack: 'Python · pytest · Selenium',
+    allureWorkflow: 'Nightly Test Suite',
+  },
   { repo: 'gavel', label: 'Gavel', stack: 'Node.js · npm package' },
 ]
 

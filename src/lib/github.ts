@@ -77,14 +77,15 @@ export async function fetchUserRepos(user: string): Promise<RepoInfo[]> {
 
 /**
  * Returns the latest completed run whose name matches `workflowName`,
- * or undefined if none found.
+ * regardless of conclusion (success or failure).
+ * Allure reports are uploaded with `if: always()` so they exist even on failed runs.
  */
 export function latestCompletedRunForWorkflow(
   runs: WorkflowRun[],
   workflowName: string,
 ): WorkflowRun | undefined {
   return runs.find(
-    (r) => r.name === workflowName && r.status === 'completed' && r.conclusion === 'success',
+    (r) => r.name === workflowName && r.status === 'completed',
   )
 }
 
