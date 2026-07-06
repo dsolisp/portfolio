@@ -9,6 +9,7 @@ export const profile = {
   githubUser: 'dsolisp',
   linkedin: 'https://www.linkedin.com/in/danieleduardosolisprado/',
   resumeUrl: '/resume.pdf',
+  dashboardUrl: 'https://dsolisp.github.io/qa-dashboard/',
   email: null as string | null,
 }
 

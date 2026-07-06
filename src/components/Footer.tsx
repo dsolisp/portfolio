@@ -8,6 +8,9 @@ export default function Footer() {
           {profile.name} · {profile.location}
         </p>
         <nav aria-label="Footer links">
+          <a href={profile.dashboardUrl} target="_blank" rel="noreferrer">
+            QA Dashboard
+          </a>
           <a href={profile.github} target="_blank" rel="noreferrer">
             GitHub
           </a>

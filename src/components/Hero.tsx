@@ -12,6 +12,9 @@ export default function Hero() {
           <a className="btn btn-primary" href={profile.resumeUrl} target="_blank" rel="noreferrer">
             Resume (PDF)
           </a>
+          <a className="btn" href={profile.dashboardUrl} target="_blank" rel="noreferrer">
+            Live QA Dashboard
+          </a>
           <a className="btn" href={profile.linkedin} target="_blank" rel="noreferrer">
             LinkedIn
           </a>
