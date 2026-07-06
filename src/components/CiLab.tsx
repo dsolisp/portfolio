@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { ciRepos, profile } from '../config.ts'
+import { allureR2BaseUrl, ciRepos, profile } from '../config.ts'
 import {
   fetchWorkflowRuns,
+  latestCompletedRunForWorkflow,
   latestRunPerWorkflow,
   relativeTime,
   runDuration,
@@ -9,6 +10,16 @@ import {
 } from '../lib/github.ts'
 
 type RunsByRepo = Record<string, WorkflowRun[] | 'error'>
+
+function buildAllureUrl(
+  repo: string,
+  runId: number,
+  suite: string | undefined,
+): string {
+  const base = allureR2BaseUrl.replace(/\/$/, '')
+  const path = suite ? `${repo}/${runId}/${suite}/index.html` : `${repo}/${runId}/index.html`
+  return `${base}/${path}`
+}
 
 function statusInfo(run: WorkflowRun): { cls: string; text: string } {
   if (run.status !== 'completed') return { cls: 'pill-running', text: run.status.replace('_', ' ') }
@@ -47,8 +58,19 @@ export default function CiLab() {
           reports and artifacts on GitHub.
         </p>
         <div className="ci-grid">
-          {ciRepos.map(({ repo, label, stack }) => {
+          {ciRepos.map(({ repo, label, stack, allureWorkflow, allureSuite }) => {
             const repoRuns = runs[repo]
+
+            // Allure report link: find the latest successful nightly run and build the R2 URL
+            const allureRun =
+              allureWorkflow && Array.isArray(repoRuns)
+                ? latestCompletedRunForWorkflow(repoRuns, allureWorkflow)
+                : undefined
+            const allureUrl =
+              allureR2BaseUrl && allureRun
+                ? buildAllureUrl(repo, allureRun.id, allureSuite)
+                : undefined
+
             return (
               <article className="ci-card" key={repo}>
                 <header className="ci-card-header">
@@ -80,9 +102,16 @@ export default function CiLab() {
                     })}
                   </ul>
                 )}
-                <a className="ci-all-link" href={`${profile.github}/${repo}/actions`} target="_blank" rel="noreferrer">
-                  All runs →
-                </a>
+                <footer className="ci-card-footer">
+                  <a className="ci-all-link" href={`${profile.github}/${repo}/actions`} target="_blank" rel="noreferrer">
+                    All runs →
+                  </a>
+                  {allureUrl && (
+                    <a className="allure-link" href={allureUrl} target="_blank" rel="noreferrer">
+                      📊 Allure report →
+                    </a>
+                  )}
+                </footer>
               </article>
             )
           })}

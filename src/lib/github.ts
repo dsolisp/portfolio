@@ -75,6 +75,19 @@ export async function fetchUserRepos(user: string): Promise<RepoInfo[]> {
   )
 }
 
+/**
+ * Returns the latest completed run whose name matches `workflowName`,
+ * or undefined if none found.
+ */
+export function latestCompletedRunForWorkflow(
+  runs: WorkflowRun[],
+  workflowName: string,
+): WorkflowRun | undefined {
+  return runs.find(
+    (r) => r.name === workflowName && r.status === 'completed' && r.conclusion === 'success',
+  )
+}
+
 /** Latest run per workflow name, newest first. */
 export function latestRunPerWorkflow(runs: WorkflowRun[]): WorkflowRun[] {
   const seen = new Map<string, WorkflowRun>()

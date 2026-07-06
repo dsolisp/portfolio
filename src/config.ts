@@ -12,17 +12,51 @@ export const profile = {
   email: null as string | null,
 }
 
+/**
+ * Public base URL of the Cloudflare R2 bucket `qa-portfolio-allure`.
+ * Set this to your `vars.R2_PUBLIC_URL` value from GitHub Actions
+ * (e.g. "https://pub-xxxx.r2.dev" or your custom domain).
+ * Leave empty to hide Allure links.
+ */
+export const allureR2BaseUrl = 'https://pub-525e3f872a0d44b7821f03ce22e3af44.r2.dev'
+
 export interface CiRepo {
   repo: string
   label: string
   stack: string
+  /**
+   * Workflow name that uploads Allure HTML to R2 (e.g. "Nightly Test Suite").
+   * When set, the CI card shows an Allure report link for the latest matching run.
+   */
+  allureWorkflow?: string
+  /**
+   * Optional sub-path within the run folder (used by Cypress matrix builds).
+   * e.g. "sauce" → R2 path becomes {repo}/{run_id}/sauce/index.html
+   */
+  allureSuite?: string
 }
 
 /** Public repos whose GitHub Actions runs are shown live. */
 export const ciRepos: CiRepo[] = [
-  { repo: 'PlaywrightProject', label: 'Playwright', stack: 'TypeScript · Playwright · Vitest' },
-  { repo: 'CypressProject', label: 'Cypress', stack: 'TypeScript · Cypress' },
-  { repo: 'JavaSeleniumProject', label: 'Java Selenium', stack: 'Java 21 · JUnit 5 · Selenium' },
+  {
+    repo: 'PlaywrightProject',
+    label: 'Playwright',
+    stack: 'TypeScript · Playwright · Vitest',
+    allureWorkflow: 'Nightly Test Suite',
+  },
+  {
+    repo: 'CypressProject',
+    label: 'Cypress',
+    stack: 'TypeScript · Cypress',
+    allureWorkflow: 'Nightly Test Suite',
+    allureSuite: 'sauce',
+  },
+  {
+    repo: 'JavaSeleniumProject',
+    label: 'Java Selenium',
+    stack: 'Java 21 · JUnit 5 · Selenium',
+    allureWorkflow: 'Nightly Test Suite',
+  },
   { repo: 'PythonSeleniumProject', label: 'Python Selenium', stack: 'Python · pytest · Selenium' },
   { repo: 'gavel', label: 'Gavel', stack: 'Node.js · npm package' },
 ]
