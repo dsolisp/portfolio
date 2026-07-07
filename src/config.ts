@@ -8,7 +8,7 @@ export const profile = {
   github: 'https://github.com/dsolisp',
   githubUser: 'dsolisp',
   linkedin: 'https://www.linkedin.com/in/danieleduardosolisprado/',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: `${import.meta.env.BASE_URL}resume.pdf`,
   dashboardUrl: 'https://dsolisp.github.io/qa-dashboard/',
   email: null as string | null,
 }
