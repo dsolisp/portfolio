@@ -49,7 +49,7 @@ export const ciRepos: CiRepo[] = [
     repo: 'CypressProject',
     label: 'Cypress',
     stack: 'TypeScript · Cypress',
-    allureWorkflow: 'Nightly Test Suite',
+    allureWorkflow: 'Full Test Suite',
     allureSuite: 'sauce',
   },
   {
@@ -62,7 +62,7 @@ export const ciRepos: CiRepo[] = [
     repo: 'PythonSeleniumProject',
     label: 'Python Selenium',
     stack: 'Python · pytest · Selenium',
-    allureWorkflow: 'Nightly Test Suite',
+    allureWorkflow: 'QA Automation CI/CD Pipeline',
   },
   { repo: 'gavel', label: 'Gavel', stack: 'Node.js · npm package' },
 ]

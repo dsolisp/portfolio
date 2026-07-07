@@ -50,7 +50,7 @@ export interface WorkflowRun {
 export async function fetchWorkflowRuns(
   owner: string,
   repo: string,
-  perPage = 15,
+  perPage = 30,
 ): Promise<WorkflowRun[]> {
   const data = await cachedFetch<{ workflow_runs: WorkflowRun[] }>(
     `runs:${owner}/${repo}`,
