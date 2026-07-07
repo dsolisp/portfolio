@@ -3,8 +3,8 @@ export const profile = {
   title: 'Senior QA Automation Engineer / SDET',
   location: 'Costa Rica',
   pitch:
-    'I build cross-stack test automation frameworks and open-source QA tooling. ' +
-    'Everything below is public, running in CI, and verifiable — click any pipeline to see it work.',
+    'I build production-style QA automation systems that companies can verify in public: ' +
+    'cross-stack frameworks, CI dashboards, Allure evidence, and open-source quality governance for AI-era teams.',
   github: 'https://github.com/dsolisp',
   githubUser: 'dsolisp',
   linkedin: 'https://www.linkedin.com/in/danieleduardosolisprado/',
