@@ -146,19 +146,21 @@ export const gavelSpotlight = {
   npmUrl: 'https://www.npmjs.com/package/@dsolisp/gavel',
   repoUrl: 'https://github.com/dsolisp/gavel',
   summary:
-    'Gavel is my open-source QA discipline engine for AI coding agents. It enforces a Test ' +
-    'Constitution — layered page objects, accessibility-first locators, no sleeps, DI via ' +
-    'fixtures, factories for test data — across Playwright, Selenium, Cypress, WebdriverIO, ' +
-    'Cucumber, Robot and pytest. It audits suites for dead code, reviews test diffs, parses ' +
-    'CI reports (JUnit, Allure, Playwright, Cypress) and clusters failures into drift vs bug vs env.',
+    'Gavel audits test code. It is my open-source QA discipline engine for AI coding agents: ' +
+    'it enforces a Test Constitution — layered page objects, accessibility-first locators, ' +
+    'no sleeps, DI via fixtures, factories for test data — across Playwright, Selenium, ' +
+    'Cypress, WebdriverIO, Cucumber, Robot and pytest. It reviews test diffs, flags dead ' +
+    'code, parses CI reports (JUnit, Allure, Playwright, Cypress) and clusters failures ' +
+    'into drift vs bug vs env.',
   bailiff: {
     name: 'Bailiff',
     status: 'In design',
     summary:
-      'Planned sibling repo. The boundary rule: everything inside the test codebase (specs, page ' +
-      'objects, locators, factories) belongs to Gavel; everything outside it (CI orchestration, ' +
-      'bug reports, tickets, environments, credentials) belongs to Bailiff. Gavel judges the ' +
-      'test code; Bailiff runs the courtroom around it.',
+      'Planned sibling repo that runs the full QA workflow around the test code: manual and ' +
+      'exploratory testing, writing test cases, troubleshooting in a live browser context, ' +
+      'CI orchestration, bug reports, tickets, environments and credentials. The boundary ' +
+      'rule: everything inside the test codebase belongs to Gavel; everything outside it ' +
+      'belongs to Bailiff. Gavel judges the test code; Bailiff runs the courtroom around it.',
     architectureUrl: 'https://github.com/dsolisp/gavel/blob/main/docs/ARCHITECTURE.md',
   },
 }

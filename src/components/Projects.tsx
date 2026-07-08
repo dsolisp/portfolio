@@ -22,9 +22,6 @@ export default function Projects() {
                     p.name
                   )}
                 </h3>
-                {p.status === 'private' && (
-                  <span className="pill pill-neutral">source on request</span>
-                )}
               </header>
               <p className="project-tagline">{p.tagline}</p>
               <p>{p.description}</p>
@@ -33,6 +30,11 @@ export default function Projects() {
                   <li key={t}>{t}</li>
                 ))}
               </ul>
+              {p.status === 'private' && (
+                <p className="project-status">
+                  <span className="pill pill-neutral">source on request</span>
+                </p>
+              )}
             </article>
           ))}
         </div>
