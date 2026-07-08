@@ -1,4 +1,4 @@
-import { profile } from '../config.ts'
+import { architectureLink, profile } from '../config.ts'
 
 export default function Footer() {
   return (
@@ -8,6 +8,7 @@ export default function Footer() {
           {profile.name} · {profile.location}
         </p>
         <nav aria-label="Footer links">
+          <a href={architectureLink.href}>Architecture</a>
           <a href={profile.dashboardUrl} target="_blank" rel="noreferrer">
             QA Dashboard
           </a>

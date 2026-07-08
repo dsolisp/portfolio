@@ -193,6 +193,47 @@ a:hover { text-decoration: underline; }
 .pill-running { color: var(--running); background: var(--running-bg); border: 1px solid rgba(240, 165, 49, 0.25); }
 .pill-neutral { color: var(--text-muted); background: var(--neutral-bg); border: 1px solid var(--border); }
 
+/* Architecture pipeline */
+.arch-svg-wrap { overflow-x: auto; margin: 1.5rem 0 0.5rem; }
+.arch-svg { display: block; width: 100%; min-width: 720px; height: auto; }
+.arch-svg .abox { fill: var(--neutral-bg); stroke: var(--border); }
+.arch-svg .alane { fill: rgba(212, 175, 55, 0.06); stroke: rgba(212, 175, 55, 0.45); stroke-dasharray: 4 3; }
+.arch-svg .aflow { stroke: var(--accent); fill: none; stroke-width: 1.6; }
+.arch-svg .ahead { fill: var(--accent); }
+.arch-svg text { fill: var(--text); font-family: var(--font); font-size: 13px; font-weight: 700; }
+.arch-svg .asub { fill: var(--text-muted); font-size: 11px; font-weight: 600; }
+.arch-svg .alane-text { fill: var(--accent); font-size: 12.5px; }
+.arch-flow { list-style: none; margin: 1.6rem auto 0; padding: 0; max-width: 46rem; }
+.arch-node { display: flex; flex-direction: column; }
+.arch-node-inner {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.022));
+  box-shadow: var(--shadow);
+  padding: 1.15rem 1.35rem;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+.arch-node-inner:hover { transform: translateY(-2px); border-color: rgba(212, 175, 55, 0.42); }
+.arch-node-header { display: flex; align-items: baseline; gap: 0.7rem; margin-bottom: 0.55rem; }
+.arch-step { font-family: var(--serif); font-size: 1.35rem; font-weight: 650; color: var(--accent); }
+.arch-parallel { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.45rem; margin: 0.2rem 0 0.75rem; }
+.arch-lane {
+  border: 1px dashed rgba(212, 175, 55, 0.45);
+  border-radius: 10px;
+  padding: 0.34rem 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(212, 175, 55, 0.06);
+}
+.arch-desc { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 0.8rem; }
+.arch-arrow { text-align: center; color: var(--accent); font-size: 0.85rem; padding: 0.45rem 0; line-height: 1; }
+.arch-footnote { color: var(--text-muted); font-size: 0.88rem; max-width: 46rem; margin: 1.4rem auto 0; }
+[data-theme="light"] .arch-node-inner {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.88));
+}
+
 /* Spotlight */
 .spotlight-card { padding: 1.35rem 1.5rem; }
 .spotlight-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }

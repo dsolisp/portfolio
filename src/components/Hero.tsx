@@ -1,4 +1,4 @@
-import { profile } from '../config.ts'
+import { architectureLink, profile } from '../config.ts'
 
 export default function Hero() {
   return (
@@ -12,6 +12,9 @@ export default function Hero() {
         <nav className="hero-actions" aria-label="Primary links">
           <a className="btn btn-primary" href={profile.dashboardUrl} target="_blank" rel="noreferrer">
             Live QA Dashboard
+          </a>
+          <a className="btn" href={architectureLink.href}>
+            {architectureLink.label}
           </a>
           <a className="btn" href={profile.resumeUrl} target="_blank" rel="noreferrer">
             Resume (PDF)

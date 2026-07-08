@@ -13,6 +13,9 @@ export const profile = {
   email: null as string | null,
 }
 
+/** In-page link to the CI/CD pipeline architecture section, used in the hero nav and footer. */
+export const architectureLink = { label: 'Pipeline Architecture', href: '#architecture' }
+
 /**
  * Public base URL of the Cloudflare R2 bucket `qa-portfolio-allure`.
  * Set this to your `vars.R2_PUBLIC_URL` value from GitHub Actions
